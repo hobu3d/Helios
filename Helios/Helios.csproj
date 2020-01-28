@@ -107,6 +107,11 @@
     <Compile Include="CalibrationPointCollectionLong.cs" />
     <Compile Include="CalibrationPointDouble.cs" />
     <Compile Include="CalibrationPointLong.cs" />
+    <Compile Include="Controls\ImageTranslucent.cs" />
+    <Compile Include="Controls\ImageTranslucentAppearanceEditor.xaml.cs">
+      <DependentUpon>ImageTranslucentAppearanceEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageTranslucentRenderer.cs" />
     <Compile Include="Gauges\AV-8B\Small Panels\Slip Turn Panel.cs" />
     <Compile Include="Gauges\M2000C\Common\Mk2CDrumTacanChannel.cs" />
     <Compile Include="Gauges\M2000C\Common\Mk2CDrumGauge.cs" />
@@ -1293,6 +1298,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\CustomGaugeBehaviorEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ImageTranslucentAppearanceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
