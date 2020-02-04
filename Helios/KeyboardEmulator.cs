@@ -106,7 +106,9 @@ namespace GadrocsWorkshop.Helios
             {"F24", 0x87},
             {"NUMLOCK", 0x90},
             {"SCROLLLOCK", 0x91},
-            {"ENTER", 0xCA}
+            {"ENTER", 0x0D},                  // synonym for "RETURN".  This is deliberate. 
+            {"NUMENTER", 0x10D },             // not a real keycode, high byte used to indicate an extended mapping which results in the scancode for ENTER on the numeric keypad.
+            {"NUMPADENTER", 0x10D }
         };
 
         static KeyboardEmulator()
@@ -154,7 +156,7 @@ namespace GadrocsWorkshop.Helios
                     int endIndex = keys.IndexOf('}', index + 1);
                     if (endIndex > -1)
                     {
-                        string keycode = keys.Substring(index + 1, endIndex - index - 1);
+                        string keycode = keys.Substring(index + 1, endIndex - index - 1).ToUpper();
                         if (_keycodes.ContainsKey(keycode))
                         {
                             eventList.Add(CreateInput(_keycodes[keycode], keyDown));
@@ -182,6 +184,11 @@ namespace GadrocsWorkshop.Helios
 
         private static NativeMethods.INPUT CreateInput(ushort virtualKeyCode, bool keyDown)
         {
+            ushort ourCode = virtualKeyCode;
+            if (ourCode > 0xff)
+            {
+                virtualKeyCode = (ushort)(virtualKeyCode & 0x00ff);
+            }
             NativeMethods.INPUT input = new NativeMethods.INPUT();
             input.type = NativeMethods.INPUT_KEYBOARD;
             input.mkhi.ki.wVk = virtualKeyCode;
@@ -190,7 +197,7 @@ namespace GadrocsWorkshop.Helios
             input.mkhi.ki.dwExtraInfo = IntPtr.Zero;
             input.mkhi.ki.dwFlags = NativeMethods.KEY_SCANCODE;
 
-            if (virtualKeyCode == 0x0D ||
+            if (ourCode > 0xff ||
                 (virtualKeyCode >= 0x21 && virtualKeyCode <= 0x28) ||
                 virtualKeyCode == 0x2D ||
                 virtualKeyCode == 0x2E ||
@@ -206,7 +213,7 @@ namespace GadrocsWorkshop.Helios
             uint scanCode = NativeMethods.MapVirtualKeyEx(virtualKeyCode, 0, _hkl);
             if (virtualKeyCode == 0x13)
             {
-                scanCode = 0x04C5;
+                scanCode = 0x04C5;                  // extended scancode for Pause
             }
 
             if (keyDown)
