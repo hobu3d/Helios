@@ -108,7 +108,11 @@
     <Compile Include="CalibrationPointDouble.cs" />
     <Compile Include="CalibrationPointLong.cs" />
     <Compile Include="Controls\CustomGaugeNeedle.cs" />
+    <Compile Include="Controls\CustomDrum.cs" />
     <Compile Include="Controls\CustomTape.cs" />
+    <Compile Include="Controls\CustomDrumAppearanceEditor.xaml.cs">
+      <DependentUpon>CustomDrumAppearanceEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CustomTapeAppearanceEditor.xaml.cs">
       <DependentUpon>CustomTapeAppearanceEditor.xaml</DependentUpon>
     </Compile>
@@ -1317,11 +1321,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\CustomDrumAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\CustomTapeAppearanceEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Controls\ImageTranslucentAppearanceEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\PotentiometerEndlessAppearanceEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
