@@ -72,7 +72,7 @@ namespace GadrocsWorkshop.Helios.Controls
 			set
 			{
 				if ((_drumImage == null && value != null)
-					|| (_Drum != null && !_drumImage.Equals(value)))
+					|| (_drumImage != null && !_drumImage.Equals(value)))
 				{
 					string oldValue = _drumImage;
 					_drumImage = value;
