@@ -216,6 +216,10 @@ namespace GadrocsWorkshop.Helios.Gauges
 
             _rectangle = new Rect(0d, 0d, Math.Max(1d, _size.Width * xScale),  Math.Max(1d, _size.Height * yScale));
             _image = ConfigManager.ImageManager.LoadImage(Image, (int)_rectangle.Width, (int)_rectangle.Height);
-        }
+			if (_image == null)
+			{
+				_image = ConfigManager.ImageManager.LoadImage("{Helios}/Images/General/missing_image.png", (int)_rectangle.Width, (int)_rectangle.Height);
+			}
+		}
     }
 }
