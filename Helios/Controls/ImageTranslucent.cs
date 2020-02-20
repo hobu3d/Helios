@@ -65,11 +65,16 @@ namespace GadrocsWorkshop.Helios.Controls
                     _imageFile = value;
 
                     ImageSource image = ConfigManager.ImageManager.LoadImage(_imageFile);
-                    if (image != null)
-                    {
-                        Width = image.Width;
-                        Height = image.Height;
-                    }
+					if (image != null)
+					{
+						Width = image.Width;
+						Height = image.Height;
+					}
+					else
+					{
+						Width =100d;
+						Height = 100d;
+					}
                     OnPropertyChanged("Image", oldValue, value, true);
                     Refresh();
                 }

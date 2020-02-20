@@ -121,12 +121,12 @@ namespace GadrocsWorkshop.Helios.Controls
 			set
 			{
 				if ((_tapeImage == null && value != null)
-					|| (_Tape != null && !_tapeImage.Equals(value)))
+					|| (_tapeImage != null && !_tapeImage.Equals(value)))
 				{
 					string oldValue = _tapeImage;
 					_tapeImage = value;
-					OnPropertyChanged("TapeImage", oldValue, value, true);
 					_Tape.Image = _tapeImage;
+					OnPropertyChanged("TapeImage", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -141,12 +141,12 @@ namespace GadrocsWorkshop.Helios.Controls
 			set
 			{
 				if ((_foregroundImage == null && value != null)
-					|| (_Foreground != null && !_foregroundImage.Equals(value)))
+					|| (_foregroundImage != null && !_foregroundImage.Equals(value)))
 				{
 					string oldValue = _foregroundImage;
 					_foregroundImage = value;
-					OnPropertyChanged("ForegroundImage", oldValue, value, true);
 					_Foreground.Image = _foregroundImage;
+					OnPropertyChanged("ForegroundImage", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -161,12 +161,12 @@ namespace GadrocsWorkshop.Helios.Controls
 			set
 			{
 				if ((_backgroundImage == null && value != null)
-					|| (_Background != null && !_backgroundImage.Equals(value)))
+					|| (_backgroundImage != null && !_backgroundImage.Equals(value)))
 				{
 					string oldValue = _backgroundImage;
 					_backgroundImage = value;
-					OnPropertyChanged("BackgroundImage", oldValue, value, true);
 					_Background.Image = _backgroundImage;
+					OnPropertyChanged("BackgroundImage", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -182,12 +182,12 @@ namespace GadrocsWorkshop.Helios.Controls
 			set
 			{
 				if ((_offFlagImage == null && value != null)
-					|| (_Tape != null && !_offFlagImage.Equals(value)))
+					|| (_offFlagImage != null && !_offFlagImage.Equals(value)))
 				{
 					string oldValue = _offFlagImage;
 					_offFlagImage = value;
-					OnPropertyChanged("TapeImage", oldValue, value, true);
 					_OffFlag.Image = _offFlagImage;
+					OnPropertyChanged("OffFlagImage", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -206,8 +206,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					double oldValue = _tape_PosX;
 					_tape_PosX = value;
-					OnPropertyChanged("Tape_PosX", oldValue, value, true);
 					_Tape.TapePosX = _tape_PosX;
+					OnPropertyChanged("Tape_PosX", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -225,8 +225,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					double oldValue = _tape_PosY;
 					_tape_PosY = value;
-					OnPropertyChanged("Tape_PosY", oldValue, value, true);
 					_Tape.TapePosY = _tape_PosY;
+					OnPropertyChanged("Tape_PosY", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -245,8 +245,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					double oldValue = _tape_Width;
 					_tape_Width = value;
-					OnPropertyChanged("Tape_Width", oldValue, value, true);
 					_Tape.Tape_Width = _tape_Width;
+					OnPropertyChanged("Tape_Width", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -264,8 +264,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					double oldValue = _tape_Height;
 					_tape_Height = value;
-					OnPropertyChanged("Tape_Height", oldValue, value, true);
 					_Tape.Tape_Height = _tape_Height;
+					OnPropertyChanged("Tape_Height", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -284,8 +284,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					double oldValue = _tape_CenterX;
 					_tape_CenterX = value;
-					OnPropertyChanged("Tape_CenterX", oldValue, value, true);
 					_Tape.Tape_CenterX = _tape_CenterX;
+					OnPropertyChanged("Tape_CenterX", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -303,8 +303,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					double oldValue = _tape_CenterY;
 					_tape_CenterY = value;
-					OnPropertyChanged("Tape_CenterY", oldValue, value, true);
 					_Tape.Tape_CenterY = _tape_CenterY;
+					OnPropertyChanged("Tape_CenterY", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -323,8 +323,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					double oldValue = _offFlag_PosX;
 					_offFlag_PosX = value;
-					OnPropertyChanged("OffFlag_PosX", oldValue, value, true);
 					_OffFlag.PosX = _offFlag_PosX;
+					OnPropertyChanged("OffFlag_PosX", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -342,8 +342,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					double oldValue = _offFlag_PosY;
 					_offFlag_PosY = value;
-					OnPropertyChanged("OffFlag_PosY", oldValue, value, true);
 					_OffFlag.PosY = _offFlag_PosY;
+					OnPropertyChanged("OffFlag_PosY", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -362,8 +362,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					double oldValue = _offFlag_Width;
 					_offFlag_Width = value;
-					OnPropertyChanged("OffFlag_Width", oldValue, value, true);
 					_OffFlag.Width = _offFlag_Width;
+					OnPropertyChanged("OffFlag_Width", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -381,8 +381,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					double oldValue = _offFlag_Height;
 					_offFlag_Height = value;
-					OnPropertyChanged("OffFlag_Height", oldValue, value, true);
 					_OffFlag.Height = _offFlag_Height;
+					OnPropertyChanged("OffFlag_Height", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -400,8 +400,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					bool oldValue = _offFlag_IsHidden;
 					_offFlag_IsHidden = value;
-					OnPropertyChanged("OffFlag_IsHidden", oldValue, value, true);
 					_OffFlag.IsHidden = _offFlag_IsHidden;
+					OnPropertyChanged("OffFlag_IsHidden", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -420,8 +420,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					int oldValue = _initialHorizontal;
 					_initialHorizontal = value;
+					_Tape.HorizontalOffset = value;
 					OnPropertyChanged("InitialHorizontal", oldValue, value, true);
-					_Tape.HorizontalOffset  =  value;
 					Refresh();
 				}
 			}
@@ -439,8 +439,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					int oldValue = _minHorizontal;
 					_minHorizontal = value;
-					OnPropertyChanged("MinHorizontal", oldValue, value, true);
 					_Tape.HorizontalOffset = value;
+					OnPropertyChanged("MinHorizontal", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -458,8 +458,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					int oldValue = _horizontalTravel;
 					_horizontalTravel = value;
+					_Tape.HorizontalOffset = value;
 					OnPropertyChanged("HorizontalTravel", oldValue, value, true);
-					_Tape.HorizontalOffset =  value;
 					Refresh();
 				}
 			}
@@ -477,8 +477,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					int oldValue = _initialVertical;
 					_initialVertical = value;
-					OnPropertyChanged("InitialVertical", oldValue, value, true);
 					_Tape.VerticalOffset = value;
+					OnPropertyChanged("InitialVertical", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -496,8 +496,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					int oldValue = _minVertical;
 					_minVertical = value;
-					OnPropertyChanged("MinVertical", oldValue, value, true);
 					_Tape.VerticalOffset = value;
+					OnPropertyChanged("MinVertical", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -515,8 +515,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					int oldValue = _verticalTravel;
 					_verticalTravel = value;
-					OnPropertyChanged("VerticalTravel", oldValue, value, true);
 					_Tape.VerticalOffset = value;
+					OnPropertyChanged("VerticalTravel", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -535,8 +535,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					int oldValue = _initialRotation;
 					_initialRotation = value;
-					OnPropertyChanged("InitialRotation", oldValue, value, true);
 					_Tape.BaseRotation = value;
+					OnPropertyChanged("InitialRotation", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -554,8 +554,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					int oldValue = _minRotation;
 					_minRotation = value;
-					OnPropertyChanged("MinRotation", oldValue, value, true);
 					_Tape.BaseRotation = value;
+					OnPropertyChanged("MinRotation", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -573,8 +573,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					int oldValue = _rotationTravel;
 					_rotationTravel = value;
-					OnPropertyChanged("RotationTravel", oldValue, value, true);
 					_Tape.BaseRotation = value;
+					OnPropertyChanged("RotationTravel", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -593,8 +593,11 @@ namespace GadrocsWorkshop.Helios.Controls
 				if (!_minInputHorizontal.Equals(value))
 				{
 					double oldValue = _minInputHorizontal;
-					_minInputHorizontal = value;
-					OnPropertyChanged("MinInputHorizontal", oldValue, value, true);
+					if ((value != _maxInputHorizontal) & (value < _maxInputHorizontal))
+					{
+						_minInputHorizontal = value;
+					}
+					OnPropertyChanged("MinInputHorizontal", oldValue, _minInputHorizontal, true);
 				}
 			}
 		}
@@ -610,8 +613,11 @@ namespace GadrocsWorkshop.Helios.Controls
 				if (!_maxInputHorizontal.Equals(value))
 				{
 					double oldValue = _maxInputHorizontal;
-					_maxInputHorizontal = value;
-					OnPropertyChanged("MaxInputHorizontal", oldValue, value, true);
+					if ((value != _minInputHorizontal) & (value > _minInputHorizontal))
+					{
+						_maxInputHorizontal = value;
+					}
+					OnPropertyChanged("MaxInputHorizontal", oldValue, _maxInputHorizontal, true);
 				}
 			}
 		}
@@ -627,8 +633,12 @@ namespace GadrocsWorkshop.Helios.Controls
 				if (!_minInputVertical.Equals(value))
 				{
 					double oldValue = _minInputVertical;
-					_minInputVertical = value;
-					OnPropertyChanged("MinInputVertical", oldValue, value, true);
+					if ((value != _maxInputVertical) & (value < _maxInputVertical))
+					{
+						_minInputVertical = value;
+					}
+
+					OnPropertyChanged("MinInputVertical", oldValue, _minInputVertical, true);
 				}
 			}
 		}
@@ -644,8 +654,11 @@ namespace GadrocsWorkshop.Helios.Controls
 				if (!_maxInputVertical.Equals(value))
 				{
 					double oldValue = _maxInputVertical;
-					_maxInputVertical = value;
-					OnPropertyChanged("MaxInputVertical", oldValue, value, true);
+					if ((value != _minInputVertical) & (value > _minInputVertical))
+					{
+						_maxInputVertical = value;
+					}
+					OnPropertyChanged("MaxInputVertical", oldValue, _maxInputVertical, true);
 				}
 			}
 		}
@@ -661,8 +674,11 @@ namespace GadrocsWorkshop.Helios.Controls
 				if (!_minInputRotation.Equals(value))
 				{
 					double oldValue = _minInputRotation;
-					_minInputRotation = value;
-					OnPropertyChanged("MinInputRotation", oldValue, value, true);
+					if ((value != _maxInputRotation) & (value < _maxInputRotation))
+					{
+						_minInputRotation = value;
+					}
+					OnPropertyChanged("MinInputRotation", oldValue, _minInputRotation, true);
 				}
 			}
 		}
@@ -678,8 +694,11 @@ namespace GadrocsWorkshop.Helios.Controls
 				if (!_maxInputRotation.Equals(value))
 				{
 					double oldValue = _maxInputRotation;
-					_maxInputRotation = value;
-					OnPropertyChanged("MaxInputRotation", oldValue, value, true);
+					if ((value != _minInputRotation) & (value > _minInputRotation))
+					{
+						_maxInputRotation = value;
+					}
+					OnPropertyChanged("MaxInputRotation", oldValue, _maxInputRotation, true);
 				}
 			}
 		}

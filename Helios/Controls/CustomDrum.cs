@@ -32,14 +32,10 @@ namespace GadrocsWorkshop.Helios.Controls
 
 		private Gauges.CustomGaugeNeedle _Drum;
 		private string _drumImage = "{Helios}/Gauges/A-10/Common/drum_tape.xaml";
-		private double _gaugeWidth = 50d;
-		private double _gaugeHeight = 100d;
 		private double _drum_PosX = 0d;
 		private double _drum_PosY = 0d;
 		private double _drum_Width = 50d;
 		private double _drum_Height = 1000d;
-		private double _drum_CenterX = 0d;
-		private double _drum_CenterY = 0d;
 		private int _initialVertical = 0;
 		private int _minVertical = 0;
 		private int _verticalTravel = 0;
@@ -80,8 +76,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					string oldValue = _drumImage;
 					_drumImage = value;
-					OnPropertyChanged("DrumImage", oldValue, value, true);
 					_Drum.Image = _drumImage;
+					OnPropertyChanged("DrumImage", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -101,8 +97,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					double oldValue = _drum_PosX;
 					_drum_PosX = value;
-					OnPropertyChanged("Drum_PosX", oldValue, value, true);
 					_Drum.TapePosX = _drum_PosX;
+					OnPropertyChanged("Drum_PosX", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -120,8 +116,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					double oldValue = _drum_PosY;
 					_drum_PosY = value;
-					OnPropertyChanged("Drum_PosY", oldValue, value, true);
 					_Drum.TapePosY = _drum_PosY;
+					OnPropertyChanged("Drum_PosY", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -140,8 +136,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					double oldValue = _drum_Width;
 					_drum_Width = value;
-					OnPropertyChanged("Drum_Width", oldValue, value, true);
 					_Drum.Tape_Width = _drum_Width;
+					OnPropertyChanged("Drum_Width", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -159,8 +155,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					double oldValue = _drum_Height;
 					_drum_Height = value;
-					OnPropertyChanged("Drum_Height", oldValue, value, true);
 					_Drum.Tape_Height = _drum_Height;
+					OnPropertyChanged("Drum_Height", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -180,8 +176,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					int oldValue = _initialVertical;
 					_initialVertical = value;
-					OnPropertyChanged("InitialVertical", oldValue, value, true);
 					_Drum.VerticalOffset = value;
+					OnPropertyChanged("InitialVertical", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -199,8 +195,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					int oldValue = _minVertical;
 					_minVertical = value;
-					OnPropertyChanged("MinVertical", oldValue, value, true);
 					_Drum.VerticalOffset = value;
+					OnPropertyChanged("MinVertical", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -218,8 +214,8 @@ namespace GadrocsWorkshop.Helios.Controls
 				{
 					int oldValue = _verticalTravel;
 					_verticalTravel = value;
-					OnPropertyChanged("VerticalTravel", oldValue, value, true);
 					_Drum.VerticalOffset = value;
+					OnPropertyChanged("VerticalTravel", oldValue, value, true);
 					Refresh();
 				}
 			}
@@ -238,8 +234,13 @@ namespace GadrocsWorkshop.Helios.Controls
 				if (!_minInputVertical.Equals(value))
 				{
 					double oldValue = _minInputVertical;
-					_minInputVertical = value;
-					OnPropertyChanged("MinInputVertical", oldValue, value, true);
+
+					if ((value != _maxInputVertical) & (value < _maxInputVertical))
+					{
+						_minInputVertical = value;
+					}
+				
+					OnPropertyChanged("MinInputVertical", oldValue, _minInputVertical, true);
 				}
 			}
 		}
@@ -255,8 +256,11 @@ namespace GadrocsWorkshop.Helios.Controls
 				if (!_maxInputVertical.Equals(value))
 				{
 					double oldValue = _maxInputVertical;
-					_maxInputVertical = value;
-					OnPropertyChanged("MaxInputVertical", oldValue, value, true);
+					if ((value != _minInputVertical) & (value > _minInputVertical))  
+					{
+						_maxInputVertical = value;
+					}
+					OnPropertyChanged("MaxInputVertical", oldValue, _maxInputVertical, true);
 				}
 			}
 		}
@@ -265,9 +269,16 @@ namespace GadrocsWorkshop.Helios.Controls
 		public override void Reset()
 		{
 			BeginTriggerBypass(true);
-				_Drum.VerticalOffset = InitialVertical;
-				Refresh();
-			EndTriggerBypass(true);
+				try
+				{
+					_Drum.VerticalOffset = InitialVertical;
+					Refresh();
+				}
+				finally
+				{
+					EndTriggerBypass(true);
+				}
+
 		}
 
 
@@ -277,8 +288,8 @@ namespace GadrocsWorkshop.Helios.Controls
 
 		#region Actions
 
-		
-        void DrumOffset_Execute(object action, HeliosActionEventArgs e)
+
+		void DrumOffset_Execute(object action, HeliosActionEventArgs e)
         {
             _drumOffset.SetValue(e.Value, e.BypassCascadingTriggers);
 			double vValue = (_drumOffset.Value.DoubleValue + ((_maxInputVertical - _minInputVertical) - _maxInputVertical)) / (_maxInputVertical - _minInputVertical); // convert to to 0-1
@@ -322,9 +333,15 @@ namespace GadrocsWorkshop.Helios.Controls
 			MaxInputVertical = double.Parse(reader.ReadElementString("MaxInputVertical"), CultureInfo.InvariantCulture);
 
 			BeginTriggerBypass(true);
-				_Drum.VerticalOffset = InitialVertical;
-				Refresh();
-			EndTriggerBypass(true);
+				try
+				{
+					_Drum.VerticalOffset = InitialVertical;
+					Refresh();
+				}
+				finally
+				{
+					EndTriggerBypass(true);
+				}
 		}
 
 
